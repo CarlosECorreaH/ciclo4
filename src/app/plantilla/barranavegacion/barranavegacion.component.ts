@@ -1,10 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ModeloIdentificar } from 'src/app/modelos/identificar.modelo';
+import { SeguridadService } from 'src/app/servicios/seguridad.service';
 
 @Component({
   selector: 'app-barranavegacion',
   templateUrl: './barranavegacion.component.html',
   styleUrls: ['./barranavegacion.component.css']
 })
-export class BarranavegacionComponent {
+export class BarranavegacionComponent implements OnInit {
+  seInicioSesion: boolean = false;
+
+  subs: Subscription = new Subscription();
+
+  constructor(private seguridadServicio: SeguridadService ){  }
+
+  ngOnInit(): void {
+    this.subs = this.seguridadServicio.ObtenerDatosUsuarioEnSesion().subscribe((datos: ModeloIdentificar) => {
+   this.seInicioSesion = datos.estaIdentificado;
+    
+  })
+
+}
 
 }

@@ -22,6 +22,14 @@ const routes: Routes = [
     path: 'seguridad',
     loadChildren: ()=>import('./modulos/seguridad/seguridad.module').then(m=>m.SeguridadModule)
   },
+  {
+    path: 'administracion',
+    loadChildren: ()=>import('./modulos/administracion/administracion.module').then(m=>m.AdministracionModule)
+  },
+  {
+    path: 'solicitudes',
+    loadChildren: ()=>import('./modulos/solicitudes/solicitudes.module').then(m=>m.SolicitudesModule)
+  },
  
   // ultima ruta error
   {

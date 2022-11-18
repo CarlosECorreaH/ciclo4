@@ -7,6 +7,7 @@ import { BarranavegacionComponent } from './plantilla/barranavegacion/barranaveg
 import { InicioComponent } from './plantilla/inicio/inicio.component';
 import { PiepaginaComponent } from './plantilla/piepagina/piepagina.component';
 import { Error404Component } from './plantilla/errores/error404/error404.component';
+import { HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { Error404Component } from './plantilla/errores/error404/error404.compone
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,30 +1,42 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { SeguridadService } from 'src/app/servicios/seguridad.service';
+const cryptoJS = require( "crypto-js");
 
 @Component({
   selector: 'app-identificar-usuario',
   templateUrl: './identificar-usuario.component.html',
   styleUrls: ['./identificar-usuario.component.css']
 })
-export class IdentificarUsuarioComponent {
+export class IdentificarUsuarioComponent implements OnInit {
 
-  fgValidacion: FormGroup = this.fb.group({});
+  fgValidador: FormGroup = this.fb.group({
+    "usuario": [" ",[Validators.required, Validators.email]],
+    "clave":[" ",[Validators.required]]
+  });
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, 
+    private servicioSeguridad: SeguridadService, private router: Router) {
 
   }
-  construirformulario() {
-    this.fgValidacion = this.fb.group({
-      correo:['',Validators.required],
-      clave: ['', Validators.required]
-    });
-  }
+ 
   ngOnInit(): void {
-    this.construirformulario();
+   
   }
 
-  get ObtenerFGV(){
-    return this.fgValidacion.controls;
+  IdentificarUsuario(){
+    let usuario = this.fgValidador.controls['usuario'].value;
+    let clave = this.fgValidador.controls['clave'].value;
+    let ClaveCifrada = cryptoJS.MD5(clave).toString();
+    this.servicioSeguridad.Identificar(usuario, ClaveCifrada).subscribe((datos:any) => {
+      //ok
+      this.servicioSeguridad.AlmacenarSesion(datos);
+      this.router.navigate(['/inicio'])
+    }, (error:any) => {
+      alert('Datos Invalidos')
+    })
   }
 
+  
 }

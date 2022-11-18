@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#"><img src="assets/imagenes/MascotaFeliz Logo.png"
+      <a class="navbar-brand" routerLink="/inicio"><img src="assets/imagenes/MascotaFeliz Logo.png"
         width="100" height="60"srcset=""></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -8,22 +8,25 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="#home">Inicio</a>
+            <a class="nav-link" routerLink="/inicio">Inicio</a>
+          </li>
+          <li *ngIf="seInicioSesion" class="nav-item">
+            <a class="nav-link" routerLink="#about">Mascota</a>
+          </li>
+          <li *ngIf="seInicioSesion" class="nav-item">
+            <a class="nav-link" routerLink="#services">Servicios</a>
+          </li>
+          <li *ngIf="!seInicioSesion" class="nav-item">
+            <a class="nav-link" routerLink="seguridad/identificar">Iniciar Sesion</a>
+          </li>
+          <li *ngIf="seInicioSesion" class="nav-item">
+            <a class="nav-link" routerLink="seguridad/cerrar-sesion">Cerrer Sesion</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#about">Sobre nosotros</a>
+            <a class="nav-link" routerLink="administracion/crear-usuario">Registrarse</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#services">Servicios</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="seguridad/iniciar-sesion">Iniciar Sesion</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#register">Registrarse</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contact">Contáctanos</a>
+            <a class="nav-link" routerLink="administracion/crear-prospecto">Contáctanos</a>
           </li>
 
 
