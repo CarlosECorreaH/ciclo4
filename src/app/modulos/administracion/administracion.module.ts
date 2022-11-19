@@ -16,6 +16,7 @@ import { CrearProspectoComponent } from './prospecto/crear-prospecto/crear-prosp
 import { VerClienteComponent } from './usuario/ver-cliente/ver-cliente.component';
 import { MascotaComponent } from './mascota/mascota.component';
 import { CrearMascotaComponent } from './mascota/crear-mascota/crear-mascota.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,9 @@ import { CrearMascotaComponent } from './mascota/crear-mascota/crear-mascota.com
   ],
   imports: [
     CommonModule,
-    AdministracionRoutingModule
+    AdministracionRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class AdministracionModule { }

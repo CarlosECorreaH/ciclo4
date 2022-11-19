@@ -14,7 +14,7 @@ export class VerClienteComponent implements OnInit {
   constructor(private usuarioServicio: UsuarioService) { }
 
   ngOnInit(): void {
-
+    this.ObtenerListadoUsuarios();
   }
 
   ObtenerListadoUsuarios() {
