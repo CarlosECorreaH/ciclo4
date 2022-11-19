@@ -7,6 +7,7 @@ import { VerMascotaComponent } from './mascota/ver-mascota/ver-mascota.component
 import { CrearProspectoComponent } from './prospecto/crear-prospecto/crear-prospecto.component';
 import { EditarClienteComponent } from './usuario/editar-cliente/editar-cliente.component';
 import { RegistrarClienteComponent } from './usuario/registrar-cliente/registrar-cliente.component';
+import { VerClienteComponent } from './usuario/ver-cliente/ver-cliente.component';
 
 const routes: Routes = [
   {
@@ -14,7 +15,7 @@ const routes: Routes = [
     component: RegistrarClienteComponent
   },
   {
-    path: 'editar-usuario',
+    path: 'editar-usuario/:id',
     component: EditarClienteComponent    
   },
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'crear-prospecto',
     component: CrearProspectoComponent
+  },
+  {
+    path: 'ver-tabla',
+    component: VerClienteComponent
   }
 ];
 

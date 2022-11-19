@@ -17,7 +17,6 @@ import { VerClienteComponent } from './usuario/ver-cliente/ver-cliente.component
 import { MascotaComponent } from './mascota/mascota.component';
 import { CrearMascotaComponent } from './mascota/crear-mascota/crear-mascota.component';
 
-
 @NgModule({
   declarations: [
     UsuarioComponent,
@@ -34,7 +33,7 @@ import { CrearMascotaComponent } from './mascota/crear-mascota/crear-mascota.com
     CrearProspectoComponent,
     VerClienteComponent,
     MascotaComponent,
-    CrearMascotaComponent
+    CrearMascotaComponent,
   ],
   imports: [
     CommonModule,
