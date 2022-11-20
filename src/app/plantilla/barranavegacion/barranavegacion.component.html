@@ -10,8 +10,8 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="/inicio">Inicio</a>
           </li>
-          <li *ngIf="seInicioSesion" class="nav-item">
-            <a class="nav-link" routerLink="#about">Mascota</a>
+          <li *ngIf="!seInicioSesion" class="nav-item">
+            <a class="nav-link" routerLink="administracion/crear-mascota" >Mascota</a>
           </li>
           <li *ngIf="seInicioSesion" class="nav-item">
             <a class="nav-link" routerLink="#services">Servicios</a>

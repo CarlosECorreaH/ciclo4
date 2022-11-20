@@ -8,37 +8,37 @@ import { SeguridadService } from './seguridad.service';
   providedIn: 'root'
 })
 export class UsuarioService {
-url ='http://localhost:3000';
-token:String='';
+  url = 'http://localhost:3000';
+  token: String = '';
 
   constructor(private http: HttpClient, private seguridadServicio: SeguridadService) {
-    this.token= this.seguridadServicio.ObtenerToken();
-   }
+    this.token = this.seguridadServicio.ObtenerToken();
+  }
 
-  ObtenerRegistros(): Observable<ModeloUsuario[]>{
+  ObtenerRegistros(): Observable<ModeloUsuario[]> {
     return this.http.get<ModeloUsuario[]>(`${this.url}/usuarios`);
   }
 
-  CrearUsuario(usuario: ModeloUsuario): Observable<ModeloUsuario>{
-    return this.http.post<ModeloUsuario>(`${this.url}/usuarios`,usuario,{
-      headers:new HttpHeaders({
-        'Authorization':`Bearer ${this.token}`
+  CrearUsuario(usuario: ModeloUsuario): Observable<ModeloUsuario> {
+    return this.http.post<ModeloUsuario>(`${this.url}/usuarios`, usuario, {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.token}`
       })
     })
   }
 
-  ActualizarUsuario(usuario: ModeloUsuario): Observable<ModeloUsuario>{
-    return this.http.put<ModeloUsuario>(`${this.url}/usuarios`,usuario,{
-      headers:new HttpHeaders({
-        'Authorization':`Bearer ${this.token}`
+  ActualizarUsuario(usuario: ModeloUsuario): Observable<ModeloUsuario> {
+    return this.http.put<ModeloUsuario>(`${this.url}/usuarios`, usuario, {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.token}`
       })
     })
   }
 
   EliminarUsuario(id: string): Observable<any> {
-    return this.http.delete<ModeloUsuario>(`${this.url}/usuarios/${id}`,{
-      headers:new HttpHeaders({
-        'Authorization':`Bearer ${this.token}`
+    return this.http.delete<ModeloUsuario>(`${this.url}/usuarios/${id}`, {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.token}`
       })
     })
   }
